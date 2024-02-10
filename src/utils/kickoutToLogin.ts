@@ -27,6 +27,8 @@ export function kickoutToLogin(message: string) {
     case "USER_NOT_FOUND":
     case "USER_IN_MULTIPLE_HELP_REQUEST":
     case "GRADING_REQUIRES_VERIFIED_PROFILE_PIC":
+    case "ROOM_ALREADY_DEFINED":
+    case "ROOM_NOT_DEFINED":
       return false;
 
     default:

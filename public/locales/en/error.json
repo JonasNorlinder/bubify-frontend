@@ -25,6 +25,8 @@
     "STUDENT_NOT_ALLOWED_TO_PERFORM_THAT_ACTION": "Deprecated after role-based security is merged",
     "DEMONSTRATION_CONTAINED_NON_DEMONSTRATABLE_ACHIEVEMENT": "Internal error: the demonstration contains an achievement that cannot be passed through demonstration.",
     "JWT_TOKEN_EXPIRED": "The JWT token has expired, please log in again",
-    "GRADING_REQUIRES_VERIFIED_PROFILE_PIC": "All students need a verified profile picture"
+    "GRADING_REQUIRES_VERIFIED_PROFILE_PIC": "All students need a verified profile picture",
+    "ROOM_ALREADY_DEFINED": "Room already exist",
+    "ROOM_NOT_DEFINED": "Room does not exist"
   }
 }

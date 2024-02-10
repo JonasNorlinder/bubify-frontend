@@ -7,6 +7,7 @@ import { withTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { CourseResponse } from "../../models/CourseResponse";
 import axios from "../../utils/axios";
+import EditRoomList from "../editRoomList";
 import { Loader } from "../loader/Loader";
 import { SafeButton } from "../safeButton/SafeButton";
 import { withUser } from "../userContext";
@@ -216,6 +217,9 @@ class CourseSettings extends React.Component<
               <MenuItem value={"PHYSICAL"}>Physical rooms only</MenuItem>
               <MenuItem value={"ZOOM"}>Zoom only</MenuItem>
             </Select>
+          </FormControl>
+          <FormControl style={{ margin: "10px" }}>
+            <EditRoomList />
           </FormControl>
           <FormControl>
             <FormLabel style={{ margin: "10px" }} component="legend">Automation</FormLabel>

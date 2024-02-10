@@ -1,4 +1,4 @@
-import { Checkbox, Chip, FormControlLabel, FormGroup, Theme, Typography, withStyles } from "@material-ui/core";
+import { Checkbox, FormControlLabel, FormGroup, Theme, Typography, withStyles } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import RoomIcon from '@material-ui/icons/Room';
 import dayjs from "dayjs";
@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { User } from "../../models/User";
 import axios from "../../utils/axios";
 import { getSortedUserList } from "../../utils/functions/getSortedUserList";
+import RoomList from "../roomList";
 import { SafeButton } from "../safeButton/SafeButton";
 import { withUser } from "../userContext";
 import { EContextValue } from "../userContext/UserContext";
@@ -139,6 +140,10 @@ class SelectUsersHelpList extends React.Component<
     }
   }
 
+  private handleRoomList = (name: string) => {
+    this.setState({room: name})
+  }
+
   render() {
     const roomIsFilled: boolean = this.state.physicalRoom ? this.state.room.length > 0 : true;
     const canSend: boolean = this.state.selectedUserIds.length > 0 && roomIsFilled;
@@ -168,7 +173,7 @@ class SelectUsersHelpList extends React.Component<
             label="Zoom"/>
           </Typography> : <></>}
           {this.state.physicalRoom || this.props.course?.roomSetting?.localeCompare("PHYSICAL") === 0 ?
-          <div>{["10K1121", "10K1125", "10K1201", "10K1203", "10K1205", "10K1206", "10K1210"].map(e => <><Chip color="secondary" label={e} onClick={() => {this.setState({room: e})}} style={{marginLeft: "10px", marginTop: "10px", marginBottom: "10px"}} /></>)}
+          <div><RoomList onClick={this.handleRoomList} />
           <TextField
             style={{ marginLeft: "10px" }}
             id="SelectUsersHelpList-room"

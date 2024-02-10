@@ -1,6 +1,5 @@
 import {
   Checkbox,
-  Chip,
   FormControlLabel,
   FormGroup,
   TextField, Theme,
@@ -18,6 +17,7 @@ import { User } from "../../models/User";
 import axios from "../../utils/axios";
 import { getSortedUserList } from "../../utils/functions/getSortedUserList";
 import AchievementsList from "../achievementsList";
+import RoomList from "../roomList";
 import { SafeButton } from "../safeButton/SafeButton";
 import { withUser } from "../userContext";
 import { EContextValue } from "../userContext/UserContext";
@@ -161,6 +161,10 @@ class SelectGoalsToDemonstrate extends React.Component<
     }
   }
 
+  private handleRoomList = (name: string) => {
+    this.setState({room: name})
+  }
+
   render() {
     const loading = !this.state.achievementsRemaining;
     const roomIsFilled: boolean = this.state.physicalRoom ? this.state.room.length > 0 : true;
@@ -209,7 +213,7 @@ class SelectGoalsToDemonstrate extends React.Component<
               </Typography> : <></>}
               {this.state.physicalRoom || this.props.course?.roomSetting?.localeCompare("PHYSICAL") === 0 ?
               <div>
-                {["10K1121", "10K1125", "10K1201", "10K1203", "10K1205", "10K1206", "10K1210"].map(e => <><Chip color="secondary" label={e} onClick={() => {this.setState({room: e})}} style={{marginLeft: "10px", marginTop: "10px", marginBottom: "10px"}} /></>)}
+              <RoomList onClick={this.handleRoomList} />
               <TextField
                 style={{ marginLeft: "10px", marginBottom: "10px" }}
                 id="SelectUsersHelpList-room"
